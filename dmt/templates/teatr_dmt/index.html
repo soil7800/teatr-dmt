@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div id="Dmz_home" class="intro">
+        <div class="container">
+            <div class="intro__inner">
+                <div class="intro__info">
+                    <nav class="nav">
+                        <a class="nav__link" href="#Dmz_home">главная</a>
+                        <a class="nav__link" href="#Dmz_actors">актеры</a>
+                        <a class="nav__link" href="#Dmz_repertoire">репертуар</a>
+                        <a class="nav__link" href="#">скоро</a>
+                        <a class="nav__link" href="#Dmz_contacts">контакты</a>
+                    </nav>
+                    <div class="tickets">
+                        <a class="btn" href="#">купить билеты</a>
+                    </div>
+                </div>
+                <div class="title">
+                    <h1>театр dmt</h1>
+                    <img src="{% static 'images/Vector.png' %}" alt="логотип театра">
+                </div>
+                <div class="about">
+                    <p>Театр DMT - это не совсем то, что происходит в реальной жизни. И не совсем то, что написал автор... Но это именно то, что творится у нас в голове. Это личное.</p>
+                    <p>Добро пожаловать в театр личных сообщений!</p>    
+                </div>
+            </div>
+        </div>       
+    </div>
+    <div id="Dmz_actors" class="actors">
+        <div class="container">
+            <div class="actors__inner">
+                <div class="section-title">
+                    <h2 class="t-dark">актеры</h2>
+                </div>
+                <div class="actors__cards">
+                    {% for actor in actors %}
+                    <div class="actors__item">
+                        <img src="{{ actor.photo.url }}" alt="фотография актера {{ actor }}">
+                        <p>{{ actor.first_name }}</p>
+                        <p>{{ actor.last_name }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Dmz_repertoire" class="repertoire">
+        <div class="container">
+            <div class="repertoire__inner">
+                <div class="section-title t-white">
+                    <h2>репертуар</h2>
+                </div>
+                <div class="repertoire__cards">
+                    {% for composition in repertoire %}
+                    <div class="repertoire__item">
+                        
+                        <h5 class="repertoire__title">{{ composition.title }}</h5>
+                        <div class="repertoire__gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                            <figure class="gallery-thumbnail" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                <a href="{{ composition.poster.url }}" itemprop="contentUrl" data-size="{{ composition.poster.width }}x{{ composition.poster.height }}">
+                                    <img src="{{ composition.poster.url }}" itemprop="thumbnail" alt="Image description" />
+                                </a>
+                                <span>смотреть больше</span>
+                                <figcaption>{{ composition.description }}</figcaption>
+                            </figure>
+                            {% for photo in composition.repertoirephoto_set.all %}
+                            <figure class="gallery-thumbnail-hidden" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                <a href="{{ photo.image.url }}" itemprop="contentUrl" data-size="{{ photo.image.width }}x{{ photo.image.height }}">
+                                    <img src="{{ photo.image.url }}" itemprop="thumbnail" alt="фотография постановки {{ composition.title }}" />
+                                </a>
+                                <figcaption>{{ photo.description }}</figcaption>
+                            </figure>
+                            {% endfor %}
+                        </div>
+                        <p class="repertoire__description">{{ composition.description }}</p>
+                        
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <footer id="Dmz_contacts" class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="section-title">
+                    <h6 class="t-dark">контакты</h6>
+                </div>
+                <div class="contacts">
+                    <ul class="contacts__list">
+                        <li>
+                            <a class="contacts__link phone t-dark" href="tel:+7 (953) 341 49 07">+7 (953) 341 49 07</a>
+                        </li>
+                        <li>
+                            <a class="contacts__link social-vk t-dark" href="https://vk.com/teatr_dmt">@teatr_dmt</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mailing">
+                    <h6 class="mailing__title t-black">будьте в курсе событий нашего театра, подписывайтесь на рассылку</h6>
+                    <form class="mailing__form" action="">
+                        <input class="input" type="text" placeholder="Имя">
+                        <input class="input" type="text" placeholder="Телефон">
+                        <input class="input" type="text" placeholder="E-mail">
+                        <input class="btn" type="submit" value="Подписаться">
+                    </form>
+                </div>
+                <section class="site-info">
+                    <div class="site-info__about">
+                        <span>(с) Все права защищены.</span>
+                        <a class="" href="">Театр ДМТ</a>
+                        <span>2020</span>
+                    </div>
+                    <div class="site-info__developed">
+                        <span>Разработано:</span>
+                        <a href="">kosskokos.design</a>
+                    </div>
+                </section>    
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}

@@ -62,8 +62,9 @@
                                 <a href="{{ composition.poster.url }}" itemprop="contentUrl" data-size="{{ composition.poster.width }}x{{ composition.poster.height }}">
                                     <img src="{{ composition.poster.url }}" itemprop="thumbnail" alt="Image description" />
                                 </a>
-                                <span>смотреть больше</span>
+                                
                                 <figcaption>{{ composition.description }}</figcaption>
+                                <span>смотреть больше</span>
                             </figure>
                             {% for photo in composition.repertoirephoto_set.all %}
                             <figure class="gallery-thumbnail-hidden" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">

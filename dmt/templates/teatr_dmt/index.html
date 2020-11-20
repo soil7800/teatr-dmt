@@ -60,7 +60,7 @@
                         <div class="repertoire__gallery" itemscope itemtype="http://schema.org/ImageGallery">
                             <figure class="gallery-thumbnail" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                                 <a href="{{ composition.poster.url }}" itemprop="contentUrl" data-size="{{ composition.poster.width }}x{{ composition.poster.height }}">
-                                    <img src="{{ composition.poster.url }}" itemprop="thumbnail" alt="Image description" />
+                                    <img src="{{ composition.poster_thumbnail.url }}" itemprop="thumbnail" alt="Image description" />
                                 </a>
                                 
                                 <figcaption>{{ composition.description }}</figcaption>
@@ -68,9 +68,7 @@
                             </figure>
                             {% for photo in composition.repertoirephoto_set.all %}
                             <figure class="gallery-thumbnail-hidden" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                <a href="{{ photo.image.url }}" itemprop="contentUrl" data-size="{{ photo.image.width }}x{{ photo.image.height }}">
-                                    <img src="{{ photo.image.url }}" itemprop="thumbnail" alt="фотография постановки {{ composition.title }}" />
-                                </a>
+                                <a href="{{ photo.image.url }}" itemprop="contentUrl" data-size="{{ photo.image.width }}x{{ photo.image.height }}"></a>
                                 <figcaption>{{ photo.description }}</figcaption>
                             </figure>
                             {% endfor %}
@@ -84,7 +82,7 @@
             
         </div>
     </div>
-    <footer id="Dmz_contacts" class="footer">
+    <div id="Dmz_contacts" class="footer">
         <div class="container">
             <div class="footer__inner">
                 <div class="section-title">
@@ -122,6 +120,6 @@
                 </section>    
             </div>
         </div>
-    </footer>
+    </div>
 
 {% endblock %}

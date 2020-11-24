@@ -9,8 +9,8 @@ from django.utils.text import slugify
 
 
 SIZE_FOR_IMAGE_TYPE = {
-    'actor': (400, 400),
-    'repertoire': (450, 450),
+    'actor': (400, 800),
+    'repertoire': (500, 500),
     'large': (1920, 1080)
 }
 ## генерация пути и названия изображения
@@ -27,7 +27,7 @@ def _generate_repertoire_images_path(instance, filename, thumbnail=False):
     repertoire_folder_name = slugify(translit(repertoire_title.lower().replace(' ', '-'), 'ru', reversed=True))
     current_date = timezone.now().strftime("%Y-%m-%d")
     file_format = filename.split('.')[-1]
-    return f"repertoire/{repertoire_folder_name}/large/{repertoire_folder_name}-{current_date}-{uuid.uuid4().hex}.{file_format}"
+    return f"repertoire/{repertoire_folder_name}/{image_type}/{repertoire_folder_name}-{current_date}-{uuid.uuid4().hex}.{file_format}"
 
 def repertoire_image_path(instance, filename):
     file_path = _generate_repertoire_images_path(instance, filename)

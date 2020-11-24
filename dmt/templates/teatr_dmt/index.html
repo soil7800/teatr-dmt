@@ -10,11 +10,10 @@
                         <a class="nav__link" href="#Dmz_home">главная</a>
                         <a class="nav__link" href="#Dmz_actors">актеры</a>
                         <a class="nav__link" href="#Dmz_repertoire">репертуар</a>
-                        <a class="nav__link" href="#">скоро</a>
                         <a class="nav__link" href="#Dmz_contacts">контакты</a>
                     </nav>
                     <div class="tickets">
-                        <a class="btn" href="#">купить билеты</a>
+                        <a class="btn" href="#Dmz_repertoire">купить билеты</a>
                     </div>
                 </div>
                 <div class="title">
@@ -34,13 +33,23 @@
                 <div class="section-title">
                     <h2 class="t-dark">актеры</h2>
                 </div>
-                <div class="actors__cards">
-                    {% for actor in actors %}
-                    <div class="actors__item">
-                        <img src="{{ actor.photo.url }}" alt="фотография актера {{ actor }}">
-                        <p>{{ actor.first_name }}</p>
-                        <p>{{ actor.last_name }}</p>
+                <div class="actors__cards actors_slider owl-carousel owl-theme">
+                    {% for couple in actors %}
+                    
+                    <div class="actors__item-wrapper">
+                        {% for actor in couple %}
+                        <div class="actors__item">
+                            <div class="actors__photo">
+                                <img src="{{ actor.photo.url }}" alt="фотография актера {{ actor }}">
+                            </div>
+                            <div class="actors__name">
+                                <p>{{ actor.first_name }}</p>
+                                <p>{{ actor.last_name }}</p>    
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
+                  
                     {% endfor %}
                 </div>
             </div>
@@ -52,29 +61,32 @@
                 <div class="section-title t-white">
                     <h2>репертуар</h2>
                 </div>
-                <div class="repertoire__cards">
+                <div class="repertoire__cards owl-carousel repertoire_slider owl-theme">
                     {% for composition in repertoire %}
-                    <div class="repertoire__item">
-                        
-                        <h5 class="repertoire__title">{{ composition.title }}</h5>
-                        <div class="repertoire__gallery" itemscope itemtype="http://schema.org/ImageGallery">
-                            <figure class="gallery-thumbnail" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                <a href="{{ composition.poster.url }}" itemprop="contentUrl" data-size="{{ composition.poster.width }}x{{ composition.poster.height }}">
-                                    <img src="{{ composition.poster_thumbnail.url }}" itemprop="thumbnail" alt="Image description" />
-                                </a>
-                                
-                                <figcaption>{{ composition.description }}</figcaption>
-                                <span>смотреть больше</span>
-                            </figure>
-                            {% for photo in composition.repertoirephoto_set.all %}
-                            <figure class="gallery-thumbnail-hidden" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                <a href="{{ photo.image.url }}" itemprop="contentUrl" data-size="{{ photo.image.width }}x{{ photo.image.height }}"></a>
-                                <figcaption>{{ photo.description }}</figcaption>
-                            </figure>
-                            {% endfor %}
+                    <div class="repertoire__item thumbnail">
+                        <div>
+                            <h5 class="repertoire__title">{{ composition.title }}</h5>
+                            <div class="repertoire__gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                                <figure class="gallery-thumbnail" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                    <a href="{{ composition.poster.url }}" itemprop="contentUrl" data-size="{{ composition.poster.width }}x{{ composition.poster.height }}">
+                                        <img src="{{ composition.poster_thumbnail.url }}" itemprop="thumbnail" alt="Image description" />
+                                    </a>
+                                    
+                                    <figcaption>{{ composition.description }}</figcaption>
+                                    <span>смотреть больше</span>
+                                </figure>
+                                {% for photo in composition.repertoirephoto_set.all %}
+                                <figure class="gallery-thumbnail-hidden" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                    <a href="{{ photo.image.url }}" itemprop="contentUrl" data-size="{{ photo.image.width }}x{{ photo.image.height }}"></a>
+                                    <figcaption>{{ photo.description }}</figcaption>
+                                </figure>
+                                {% endfor %}
+                            </div>    
                         </div>
-                        <p class="repertoire__description">{{ composition.description }}</p>
-                        
+                        <div class="caption">
+                            <div class="flex-text repertoire__description">{{ composition.description|linebreaks }}</div>
+                            <a href="" class="btn test-btn" data-twf-target-state='{"event_id": "{{composition.tmp_id}}" }'>купить билет</a>    
+                        </div>
                     </div>
                     {% endfor %}
                 </div>
@@ -88,38 +100,40 @@
                 <div class="section-title">
                     <h6 class="t-dark">контакты</h6>
                 </div>
-                <div class="contacts">
-                    <ul class="contacts__list">
-                        <li>
-                            <a class="contacts__link phone t-dark" href="tel:+7 (953) 341 49 07">+7 (953) 341 49 07</a>
-                        </li>
-                        <li>
-                            <a class="contacts__link social-vk t-dark" href="https://vk.com/teatr_dmt">@teatr_dmt</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="mailing">
-                    <h6 class="mailing__title t-black">будьте в курсе событий нашего театра, подписывайтесь на рассылку</h6>
-                    <form class="mailing__form" action="">
-                        <input class="input" type="text" placeholder="Имя">
-                        <input class="input" type="text" placeholder="Телефон">
-                        <input class="input" type="text" placeholder="E-mail">
-                        <input class="btn" type="submit" value="Подписаться">
-                    </form>
-                </div>
-                <section class="site-info">
-                    <div class="site-info__about">
-                        <span>(с) Все права защищены.</span>
-                        <a class="" href="">Театр ДМТ</a>
-                        <span>2020</span>
+                <div>
+                    <div class="contacts">
+                        <ul class="contacts__list">
+                            <li>
+                                <a class="contacts__link phone t-dark" href="tel:+7 (953) 341 49 07">+7 (953) 341 49 07</a>
+                            </li>
+                            <li>
+                                <a class="contacts__link social-vk t-dark" href="https://vk.com/teatr_dmt">@teatr_dmt</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="site-info__developed">
-                        <span>Разработано:</span>
-                        <a href="">kosskokos.design</a>
+                    <div class="mailing">
+                        <h6 class="mailing__title t-black">будьте в курсе событий нашего театра, подписывайтесь на рассылку</h6>
+                        <form class="mailing__form" action="">
+                            <input class="input" type="text" placeholder="Имя">
+                            <input class="input" type="text" placeholder="Телефон">
+                            <input class="input" type="text" placeholder="E-mail">
+                            <input class="btn" type="submit" value="Подписаться">
+                        </form>
                     </div>
-                </section>    
+                    <section class="site-info">
+                        <div class="site-info__about">
+                            <span>(с) Все права защищены.</span>
+                            <a class="" href="">Театр ДМТ</a>
+                            <span>2020</span>
+                        </div>
+                        <div class="site-info__developed">
+                            <span>Разработано:</span>
+                            <a href="">kosskokos.design</a>
+                        </div>
+                    </section> 
+                </div>
+                   
             </div>
         </div>
-    </div>
-
+    </div>      
 {% endblock %}

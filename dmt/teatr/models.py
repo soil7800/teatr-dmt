@@ -33,7 +33,8 @@ class Repertoire(models.Model):
     description = models.TextField('Описание', help_text='Введите описание постановки')
     poster = models.ImageField('Постер', upload_to=repertoire_image_path, max_length=250)
     poster_thumbnail = models.ImageField('Миниатюра постера', upload_to=repertoire_thumbnail_path, blank=True, max_length=250)
-
+    tmp_id = models.IntegerField('Идентификационный номер события на Timepad', 
+                                help_text='Введите номер события из Timepad')
     class Meta:
         ordering = ('title',)
         verbose_name = 'Репертуар'

@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- css -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
-
+       
     <!-- Photoswipe core CSS file -->
     <link rel="stylesheet" href="{% static 'css/photoswipe.css' %}"> 
 
@@ -18,10 +14,15 @@
      - preloader.gif (for browsers that do not support CSS animations) -->
     <link rel="stylesheet" href="{% static 'css/default-skin/default-skin.css' %}"> 
     
+    <!-- owl -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
 
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">    
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
     
     <title>{% block title %}ТЕАТР ДМТ{% endblock %}</title>
@@ -38,7 +39,84 @@
     <script src="{% static 'js/main.js' %}"></script>
     <!-- UI JS file -->
     <script src="{% static 'js/photoswipe-ui-default.min.js' %}"></script>
+    <!-- owl -->
+    <!-- jqury min -->
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.repertoire_slider').owlCarousel({
+                loop: true,
+                mouseDrag: false,
+                nav: false,
+                dots: true,
+                responsive: {
+                    0:{
+                        items: 1,
+                    },
+                    768: {
+                        items: 2,
+                        margin: 30,
+                    },
+                    992: {
+                        items: 2,
+                        margin: 160,
+                    }
+                }
+            });
+        });
+        $(document).ready(function(){
+            $('.actors_slider').owlCarousel({
+                loop: false,
+                mouseDrag: false,
+                nav: false,
+                dots: true,
+                margin: 20,
+                responsive: {
+                    0:{
+                        items: 1,
+                    },
+                    320:{
+                        items: 2,
+                        margin:30
+                    },
+                    768: {
+                        items: 3,
+                        margin: 50,
+                    },
+                    900: {
+                        items: 3,
+                        margin: 100,
+                    },
+                    1024: {
+                        items: 4,
+                        margin: 100,
+                    }
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript" 
+            defer="defet" 
+            charset="UTF-8" 
+            src="https://timepad.ru/js/tpwf/loader/min/loader.js" 
+            data-timepad-widget-v2="event_register">
+        (function() {
+            return {
+                "locale": "ru",
+                "display": "popup",
+                "hidePreloading": true,
+                "popup": {
+                    "triggerSelector": ".test-btn",
+                    "width": "1000"
+                },
+                "event": {
+                    "id": "1275720"
+                },
 
+            }
+        })();
+    </script>
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 

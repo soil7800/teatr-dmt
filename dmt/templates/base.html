@@ -3,7 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       
+        <!-- google fonts -->
+        <style>
+            /* open-sans-regular - latin_cyrillic */
+            @font-face {
+              font-family: 'Open Sans';
+              font-style: normal;
+              font-weight: 400;
+              src: local(''),
+                   url('{% static "fonts/open-sans-v18-latin_cyrillic-regular.woff2"%}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+                   url('{% static "fonts/open-sans-v18-latin_cyrillic-regular.woff" %}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            }
+            /* open-sans-700 - latin_cyrillic */
+            @font-face {
+              font-family: 'Open Sans';
+              font-style: normal;
+              font-weight: 700;
+              src: local(''),
+                   url('{% static "fonts/open-sans-v18-latin_cyrillic-700.woff2" %}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+                   url('{% static "fonts/open-sans-v18-latin_cyrillic-700.woff" %}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            }
+            /* open-sans-condensed-300 - latin_cyrillic */
+            @font-face {
+                font-family: 'Open Sans Condensed';
+                font-style: normal;
+                font-weight: 300;
+                src: local(''),
+                    url('{% static "fonts/open-sans-condensed-v15-latin_cyrillic-300.woff2" %}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+                    url('{% static "fonts/open-sans-condensed-v15-latin_cyrillic-300.woff" %}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            }
+            /* open-sans-condensed-700 - latin_cyrillic */
+            @font-face {
+                font-family: 'Open Sans Condensed';
+                font-style: normal;
+                font-weight: 700;
+                src: local(''),
+                    url('{% static "fonts/open-sans-condensed-v15-latin_cyrillic-700.woff2" %}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+                    url('{% static "fonts/open-sans-condensed-v15-latin_cyrillic-700.woff" %}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            }
+        </style>   
     <!-- Photoswipe core CSS file -->
     <link rel="stylesheet" href="{% static 'css/photoswipe.css' %}">
 
@@ -20,45 +58,7 @@
     <!-- css -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
-    <!-- google fonts -->
-    <style>
-        /* open-sans-regular - latin_cyrillic */
-        @font-face {
-          font-family: 'Open Sans';
-          font-style: normal;
-          font-weight: 400;
-          src: local(''),
-               url('../fonts/open-sans-v18-latin_cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-               url('../fonts/open-sans-v18-latin_cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-        }
-        /* open-sans-700 - latin_cyrillic */
-        @font-face {
-          font-family: 'Open Sans';
-          font-style: normal;
-          font-weight: 700;
-          src: local(''),
-               url('../fonts/open-sans-v18-latin_cyrillic-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-               url('../fonts/open-sans-v18-latin_cyrillic-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-        }
-        /* open-sans-condensed-300 - latin_cyrillic */
-        @font-face {
-          font-family: 'Open Sans Condensed';
-          font-style: normal;
-          font-weight: 300;
-          src: local(''),
-               url('../fonts/open-sans-condensed-v15-latin_cyrillic-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-               url('../fonts/open-sans-condensed-v15-latin_cyrillic-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-        }
-        /* open-sans-condensed-700 - latin_cyrillic */
-        @font-face {
-          font-family: 'Open Sans Condensed';
-          font-style: normal;
-          font-weight: 700;
-          src: local(''),
-               url('../fonts/open-sans-condensed-v15-latin_cyrillic-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-               url('../fonts/open-sans-condensed-v15-latin_cyrillic-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-        }
-    </style>
+
     <title>{% block title %}ТЕАТР ДМТ{% endblock %}</title>
 </head>
 <body>

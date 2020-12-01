@@ -6,12 +6,18 @@
         <div class="container">
             <div class="intro__inner">
                 <div class="intro__info">
-                    <nav class="nav">
-                        <a class="nav__link" href="#Dmz_home">главная</a>
-                        <a class="nav__link" href="#Dmz_actors">актеры</a>
-                        <a class="nav__link" href="#Dmz_repertoire">репертуар</a>
-                        <a class="nav__link" href="#Dmz_contacts">контакты</a>
+                    <nav class="nav" id="myTopnav">
+                        <a onclick="closeNav()" class="nav__link" href="#Dmz_home">главная</a>
+                        <a onclick="closeNav()" class="nav__link" href="#Dmz_actors">актеры</a>
+                        <a onclick="closeNav()" class="nav__link" href="#Dmz_repertoire">репертуар</a>
+                        <a onclick="closeNav()" class="nav__link" href="#Dmz_contacts">контакты</a>
                     </nav>
+                    <a href="javascript:void(0)" class="nav__close-btn" id="nav__close-btn" onclick="closeNav()">
+                        <span class="material-icons nav__icons">close</span>
+                    </a>
+                    <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                        <span class="material-icons nav__icons">menu</span>
+                    </a>
                     <div class="tickets">
                         <a class="btn" href="#Dmz_repertoire">купить билеты</a>
                     </div>
@@ -33,11 +39,9 @@
                 <div class="section-title">
                     <h2 class="t-dark">актеры</h2>
                 </div>
-                <div class="actors__cards actors_slider owl-carousel owl-theme">
-                    {% for couple in actors %}
-                    
-                    <div class="actors__item-wrapper">
-                        {% for actor in couple %}
+                <div class="actors_slider-wrapper">
+                    <div class="actors_slider">
+                        {% for actor in actors_2 %}
                         <div class="actors__item">
                             <div class="actors__photo">
                                 <img src="{{ actor.photo.url }}" alt="фотография актера {{ actor }}">
@@ -49,8 +53,16 @@
                         </div>
                         {% endfor %}
                     </div>
-                  
-                    {% endfor %}
+                    <div class="arrow actors-prev arrow-prev">
+                        <span class="material-icons">
+                            
+                        </span>
+                    </div>
+                    <div class="arrow actors-next arrow-next">
+                        <span class="material-icons">
+                            
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,34 +73,48 @@
                 <div class="section-title t-white">
                     <h2>репертуар</h2>
                 </div>
-                <div class="repertoire__cards owl-carousel repertoire_slider owl-theme">
-                    {% for composition in repertoire %}
-                    <div class="repertoire__item thumbnail">
-                        <div>
-                            <h5 class="repertoire__title">{{ composition.title }}</h5>
-                            <div class="repertoire__gallery" itemscope itemtype="http://schema.org/ImageGallery">
-                                <figure class="gallery-thumbnail" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                    <a href="{{ composition.poster.url }}" itemprop="contentUrl" data-size="{{ composition.poster.width }}x{{ composition.poster.height }}">
-                                        <img src="{{ composition.poster_thumbnail.url }}" itemprop="thumbnail" alt="Image description" />
-                                    </a>
-                                    
-                                    <figcaption>{{ composition.description }}</figcaption>
-                                    <span>смотреть больше</span>
-                                </figure>
-                                {% for photo in composition.repertoirephoto_set.all %}
-                                <figure class="gallery-thumbnail-hidden" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                    <a href="{{ photo.image.url }}" itemprop="contentUrl" data-size="{{ photo.image.width }}x{{ photo.image.height }}"></a>
-                                    <figcaption>{{ photo.description }}</figcaption>
-                                </figure>
-                                {% endfor %}
-                            </div>    
+                <div class="repertoire_slider">
+                    <div class="repertoire__cards">
+                        {% for composition in repertoire %}
+                        <div class="repertoire__item thumbnail">
+                            <div>
+                                <h5 class="repertoire__title">{{ composition.title }}</h5>
+                                <div class="repertoire__gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                                    <figure class="gallery-thumbnail" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                        <a href="{{ composition.poster.url }}" itemprop="contentUrl" data-size="{{ composition.poster.width }}x{{ composition.poster.height }}">
+                                            <img src="{{ composition.poster_thumbnail.url }}" itemprop="thumbnail" alt="Image description" />
+                                        </a>
+                                        
+                                        <figcaption>{{ composition.description }}</figcaption>
+                                        <span>смотреть больше</span>
+                                    </figure>
+                                    {% for photo in composition.repertoirephoto_set.all %}
+                                    <figure class="gallery-thumbnail-hidden" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                        <a href="{{ photo.image.url }}" itemprop="contentUrl" data-size="{{ photo.image.width }}x{{ photo.image.height }}"></a>
+                                        <figcaption>{{ photo.description }}</figcaption>
+                                    </figure>
+                                    {% endfor %}
+                                </div>    
+                            </div>
+                            <div class="caption">
+                                <div class="flex-text repertoire__description">{{ composition.description|linebreaks }}</div>
+                                <a href="" class="btn test-btn" data-twf-target-state='{"event_id": "{{composition.tmp_id}}" }'>купить билет</a>    
+                            </div>
+                            
                         </div>
-                        <div class="caption">
-                            <div class="flex-text repertoire__description">{{ composition.description|linebreaks }}</div>
-                            <a href="" class="btn test-btn" data-twf-target-state='{"event_id": "{{composition.tmp_id}}" }'>купить билет</a>    
-                        </div>
+                        {% endfor %}
+                        
                     </div>
-                    {% endfor %}
+                    <div class="arrow repertoire-prev arrow-prev t-white">
+                        <span class="material-icons">
+                            
+                        </span>
+                    </div>
+                    <div class="arrow repertoire-next arrow-next t-white">
+                        <span class="material-icons">
+                            
+                        </span>
+                    </div>
                 </div>
             </div>
             

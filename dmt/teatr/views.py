@@ -10,14 +10,6 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         actors_count = Actor.objects.all().count()
-        acacac = []
-
-        for i in range(0, actors_count, 2):
-            if i + 1 < actors_count:
-                acacac.append((Actor.objects.all()[i], Actor.objects.all()[i+1]))
-            else:
-                acacac.append((Actor.objects.all()[i],))
-        print(acacac)
-        context['actors'] = acacac
+        context["actors_2"] = Actor.objects.all()
         context['repertoire'] = Repertoire.objects.all()
         return context

@@ -142,7 +142,7 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
             // define gallery index (for URL)
             galleryUID: galleryElement.getAttribute('data-pswp-uid'),
             showHideOpacity: true,
-            bgOpacity: 0.7,
+            bgOpacity: 1,
             // getThumbBoundsFn: function(index) {
             //     // See Options -> getThumbBoundsFn section of documentation for more info
             //     var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail

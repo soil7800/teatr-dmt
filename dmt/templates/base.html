@@ -3,60 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- google fonts -->
-        <style>
-            /* open-sans-regular - latin_cyrillic */
-            @font-face {
-              font-family: 'Open Sans';
-              font-style: normal;
-              font-weight: 400;
-              src: local(''),
-                   url('{% static "fonts/open-sans-v18-latin_cyrillic-regular.woff2"%}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-                   url('{% static "fonts/open-sans-v18-latin_cyrillic-regular.woff" %}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-            }
-            /* open-sans-700 - latin_cyrillic */
-            @font-face {
-              font-family: 'Open Sans';
-              font-style: normal;
-              font-weight: 700;
-              src: local(''),
-                   url('{% static "fonts/open-sans-v18-latin_cyrillic-700.woff2" %}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-                   url('{% static "fonts/open-sans-v18-latin_cyrillic-700.woff" %}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-            }
-            /* open-sans-condensed-300 - latin_cyrillic */
-            @font-face {
-                font-family: 'Open Sans Condensed';
-                font-style: normal;
-                font-weight: 300;
-                src: local(''),
-                    url('{% static "fonts/open-sans-condensed-v15-latin_cyrillic-300.woff2" %}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-                    url('{% static "fonts/open-sans-condensed-v15-latin_cyrillic-300.woff" %}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-            }
-            /* open-sans-condensed-700 - latin_cyrillic */
-            @font-face {
-                font-family: 'Open Sans Condensed';
-                font-style: normal;
-                font-weight: 700;
-                src: local(''),
-                    url('{% static "fonts/open-sans-condensed-v15-latin_cyrillic-700.woff2" %}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-                    url('{% static "fonts/open-sans-condensed-v15-latin_cyrillic-700.woff" %}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-            }
-        </style>   
+    <!-- google fonts -->
+    <style>
+        /* open-sans-regular - latin_cyrillic */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local(''),
+                url('{% static "fonts/open-sans-v18-latin_cyrillic-regular.woff2"%}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+                url('{% static "fonts/open-sans-v18-latin_cyrillic-regular.woff" %}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        }
+        /* open-sans-700 - latin_cyrillic */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: local(''),
+                url('{% static "fonts/open-sans-v18-latin_cyrillic-700.woff2" %}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+                url('{% static "fonts/open-sans-v18-latin_cyrillic-700.woff" %}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        }
+        /* open-sans-condensed-300 - latin_cyrillic */
+        @font-face {
+            font-family: 'Open Sans Condensed';
+            font-style: normal;
+            font-weight: 300;
+            src: local(''),
+                url('{% static "fonts/open-sans-condensed-v15-latin_cyrillic-300.woff2" %}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+                url('{% static "fonts/open-sans-condensed-v15-latin_cyrillic-300.woff" %}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        }
+        /* open-sans-condensed-700 - latin_cyrillic */
+        @font-face {
+            font-family: 'Open Sans Condensed';
+            font-style: normal;
+            font-weight: 700;
+            src: local(''),
+                url('{% static "fonts/open-sans-condensed-v15-latin_cyrillic-700.woff2" %}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+                url('{% static "fonts/open-sans-condensed-v15-latin_cyrillic-700.woff" %}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
     <!-- Photoswipe core CSS file -->
-    <link rel="stylesheet" href="{% static 'css/photoswipe.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/photoswipe.css' %}">
 
     <!-- Photoswipe skin CSS file (styling of UI - buttons, caption, etc.)
      In the folder of skin CSS file there are also:
      - .png and .svg icons sprite,
      - preloader.gif (for browsers that do not support CSS animations) -->
-    <link rel="stylesheet" href="{% static 'css/default-skin/default-skin.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/default-skin/default-skin.css' %}"> 
     
     <!-- owl -->
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.default.min.css' %}">
+    <!-- slick -->
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
 
     <!-- css -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     
 
     <title>{% block title %}ТЕАТР ДМТ{% endblock %}</title>
@@ -79,7 +83,7 @@
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script>
         $(document).ready(function(){
-            $('.repertoire_slider').owlCarousel({
+            $('.asdasd').owlCarousel({
                 loop: true,
                 mouseDrag: false,
                 nav: false,
@@ -99,36 +103,7 @@
                 }
             });
         });
-        $(document).ready(function(){
-            $('.actors_slider').owlCarousel({
-                loop: false,
-                mouseDrag: false,
-                nav: false,
-                dots: true,
-                margin: 20,
-                responsive: {
-                    0:{
-                        items: 1,
-                    },
-                    320:{
-                        items: 2,
-                        margin:30
-                    },
-                    768: {
-                        items: 3,
-                        margin: 50,
-                    },
-                    900: {
-                        items: 3,
-                        margin: 100,
-                    },
-                    1024: {
-                        items: 4,
-                        margin: 100,
-                    }
-                }
-            });
-        });
+        
     </script>
     <script type="text/javascript" 
             defer="defet" 
@@ -151,6 +126,129 @@
             }
         })();
     </script>
+    <script type="text/javascript" src="{% static 'slick/slick.min.js'%}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.actors_slider').slick({
+                focusOnSelect: false,
+                slidesToShow: 4,
+                rows: 2,
+                infinite: false,
+                arrows: true,
+                prevArrow: '.actors-prev',
+                nextArrow: '.actors-next',
+                dots: true,
+                responsive: [{
+
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 4,
+                    }
+
+                    }, {
+
+                    breakpoint: 900,
+                    settings: {
+                        slidesToShow: 2,
+                        
+                    }
+
+                    }, {
+
+                    breakpoint: 300,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+
+                }]
+            });
+            $('.repertoire__cards').slick({
+                focusOnSelect: false,
+                slidesToShow: 2,
+                infinite: false,
+                arrows: true,
+                prevArrow: '.repertoire-prev',
+                nextArrow: '.repertoire-next',
+                dots: true,
+                responsive: [{
+                    breakpoint: 769,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+
+                    }]
+            });
+        });
+      </script>
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "nav") {
+            x.className += " responsive";
+          } else {
+            x.className = "nav";
+          }
+        }
+        </script>
+        <script>
+            $( window ).resize(function() {
+                if ($(window).width() < 769) {
+                    $(".nav__link").attr("onclick", "closeNav()")
+                }
+                else {
+                    $(".nav__link").removeAttr("onclick")
+                }
+            })
+            function openNav() {
+                document.getElementById("myTopnav").style = "visibility: visible; opacity: 1;";
+                document.getElementById("nav__close-btn").style = "visibility: visible; opacity: 1;";
+                document.body.style = "overflow: hidden"
+            }
+            function closeNav() {
+                document.getElementById("myTopnav").style = "visibility: hidden; opacity: 0;";
+                document.getElementById("nav__close-btn").style = "visibility: hidden; opacity: 0;";
+                document.body.style = "overflow: visible"
+
+            }
+            </script>
+        <script>
+            // Select all links with hashes
+            $('a[href*="#"]')
+            // Remove links that don't actually link to anything
+            .not('[href="#"]')
+            .not('[href="#0"]')
+            .click(function(event) {
+                // On-page links
+                if (
+                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+                && 
+                location.hostname == this.hostname
+                ) {
+                // Figure out element to scroll to
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                // Does a scroll target exist?
+                if (target.length) {
+                    // Only prevent default if animation is actually gonna happen
+                    event.preventDefault();
+                    $('html, body').animate({
+                    scrollTop: target.offset().top
+                    }, 500, function() {
+                    // Callback after animation
+                    // Must change focus!
+                    var $target = $(target);
+                    $target.focus();
+                    if ($target.is(":focus")) { // Checking if the target was focused
+                        return false;
+                    } else {
+                        $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                        $target.focus(); // Set focus again
+                    };
+                    });
+                }
+                }
+            });
+        </script>
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 

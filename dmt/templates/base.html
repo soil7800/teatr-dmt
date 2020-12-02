@@ -147,7 +147,7 @@
 
                     }, {
 
-                    breakpoint: 900,
+                    breakpoint: 993,
                     settings: {
                         slidesToShow: 2,
                         
@@ -191,25 +191,18 @@
         }
         </script>
         <script>
-            $( window ).resize(function() {
-                if ($(window).width() < 769) {
-                    $(".nav__link").attr("onclick", "closeNav()")
-                }
-                else {
-                    $(".nav__link").removeAttr("onclick")
-                }
-            })
-            function openNav() {
-                document.getElementById("myTopnav").style = "visibility: visible; opacity: 1;";
-                document.getElementById("nav__close-btn").style = "visibility: visible; opacity: 1;";
-                document.body.style = "overflow: hidden"
-            }
-            function closeNav() {
-                document.getElementById("myTopnav").style = "visibility: hidden; opacity: 0;";
-                document.getElementById("nav__close-btn").style = "visibility: hidden; opacity: 0;";
-                document.body.style = "overflow: visible"
-
-            }
+            $(".icon").click(function(e){
+                e.preventDefault();
+                $(".nav").css("display", "flex").hide().fadeIn();
+                $(".nav__close-btn").fadeIn();
+                $(document.body).css({"overflow": "hidden", "height": "100%"});
+            });
+            $(".nav__close-btn, .nav").click(function(e){
+                e.preventDefault();
+                $(".nav").fadeOut();
+                $(".nav__close-btn").fadeOut();
+                $(document.body).css({"overflow": "auto", "height": "auto"});
+            });
             </script>
         <script>
             // Select all links with hashes

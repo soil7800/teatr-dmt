@@ -12,7 +12,7 @@ class Actor(models.Model):
     first_name = models.CharField('Имя', max_length=100, help_text='Введите имя актера')
     last_name = models.CharField('Фамилия', max_length=100, help_text='Введите фамилию актера')
     photo = models.ImageField('Фото', upload_to=actor_image_path)
-
+    
     class Meta:
         ordering = ['id']
         verbose_name = 'Актер'

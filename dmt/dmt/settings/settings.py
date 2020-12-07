@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'teatr.apps.TeatrConfig',
+    'mailing.apps.MailingConfig',
 ]
 
 MIDDLEWARE = [
@@ -101,3 +102,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+SEND_PULSE_API_ID = os.getenv('SEND_PULSE_API_ID')
+SEND_PULSE_API_SECRET = os.getenv('SEND_PULSE_API_SECRET')
+SEND_PULSE_API_SUBSCRIBER_BOOK_ID = os.getenv('SEND_PULSE_API_SUBSCRIBER_BOOK_ID')
+SEND_PULSE_TOKEN_STORAGE = 'FILE'

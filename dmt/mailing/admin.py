@@ -4,4 +4,4 @@ from .models import Subscriber
 
 @admin.register(Subscriber)
 class SubscriberAdmin(admin.ModelAdmin):
-    list_display = ('id', 'email', 'name', 'phone', 'sendpulse_status')
+    list_display = ('id', 'email', 'name', 'sendpulse_status')

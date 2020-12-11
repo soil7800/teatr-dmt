@@ -12,9 +12,9 @@ def add_subscriber(request):
     if request.is_ajax() and request.POST.get('action') == 'post':
         data = {
             "name": request.POST.get('name'),
-            "phone": re.sub(' ', '', request.POST.get('phone')),
             "email": request.POST.get('email'),
         }
+        print(data)
         form = SubscriberForm(data)
         if form.is_valid():
             form.save()

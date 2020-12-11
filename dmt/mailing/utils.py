@@ -14,7 +14,6 @@ def add_subscriber_to_sendpulse(subscriber):
             'email': subscriber.email,
             'variables': {
                 'Имя': subscriber.name,
-                'Phone': subscriber.phone,
             }
         }
     ]

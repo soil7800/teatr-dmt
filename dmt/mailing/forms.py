@@ -22,6 +22,7 @@ class SubscriberForm(forms.ModelForm):
         except Subscriber.DoesNotExist:
             return email
         raise forms.ValidationError('Вы уже подписаны на нашу рассылку!')
+    
     def save(self, commit=True, *args, **kwargs):
         instance = super().save(commit=True, *args, **kwargs)
         adition_result = add_subscriber_to_sendpulse(instance)

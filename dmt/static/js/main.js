@@ -77,7 +77,7 @@ $(document).ready(function() {
             }]
     });
 });
-$(window).resize(function() {
+$(window).on('resize', function() {
     if (window.innerWidth <= 767 && ($(".nav").css("display") == "flex") && $(".nav").attr("dmt-menu-status") != "active") {
         $(".nav").css("display", "none");
     }
@@ -88,7 +88,7 @@ $(window).resize(function() {
     }
     else if (window.innerWidth > 767 && ($(".nav").css("display") == "none") && ($(".nav").attr("dmt-menu-status") == "hidden")) {
         $(".nav").css("display", "flex");
-    }
+    };
 });
 // Открытие полноэкранного меню на устройствах с шириной меньше 767px
 $(".menu-icon").click(function(e){
@@ -165,7 +165,7 @@ $(window).on('load', function() {
             $(this).after('<a class="more t-white" href="">читать далее</a>')
         }
     });
-    $('.more').click(function(e) {
+    $('.flex-text').on('click', '.more', function(e) {
         e.preventDefault();
         var description = $(this).parent().children('.repertoire__description');
         if ($(this).text() != 'скрыть') {
@@ -176,5 +176,22 @@ $(window).on('load', function() {
             description.animate({height: "63px"});
             $(this).text("читать далее");
         }
+    });
+    var resizeTimer;
+    $(window).on('resize', function() { 
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            $('.repertoire__description').each(function(index){
+                console.log('Элемент №' + index + ', высота - ' + $(this).get(0).scrollHeight + ', вся высота - ' + $(this).get(0).clientHeight + ', ссылка - ' + !$(this).next('.more').length);
+                if (($(this).get(0).scrollHeight != $(this).get(0).clientHeight) && !$(this).next('.more').length) {
+                    $(this).after('<a class="more t-white" href="">читать далее</a>');
+                    console.log('добавлена ссылка: Элемент №' + index + ', высота - ' + $(this).get(0).scrollHeight + ', вся высота - ' + $(this).get(0).clientHeight + ', ссылка - ' + !$(this).next('.more').length);
+                }
+                else if (($(this).get(0).scrollHeight == $(this).get(0).clientHeight) && $(this).next('.more').length) {
+                    $(this).next('.more').remove();
+                    console.log('ссылка удалена: Элемент №' + index + ', высота - ' + $(this).get(0).scrollHeight + ', вся высота - ' + $(this).get(0).clientHeight + ', ссылка - ' + !$(this).next('.more').length);
+                }
+            }); 
+        }, 250);
     })
 });

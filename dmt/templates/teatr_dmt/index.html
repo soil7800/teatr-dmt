@@ -4,42 +4,51 @@
 
     <div id="Dmz_home" class="intro">
         <div class="container">
-            <div class="intro__inner">
-                <div class="intro__info">
-                    <nav class="nav" id="myTopnav">
-                        <a class="nav__link" href="#Dmz_home">главная</a>
-                        <a class="nav__link" href="#Dmz_actors">актеры</a>
-                        <a class="nav__link" href="#Dmz_repertoire">репертуар</a>
-                        <a class="nav__link" href="#Dmz_contacts">контакты</a>
+            <div class="intro__inner f-c-sb t-white">
+                <div class="intro__info f-sb">
+                    <nav class="nav f-sb" id="myTopnav">
+                        <a class="nav__link t-white" href="#Dmz_home">главная</a>
+                        <a class="nav__link t-white" href="#Dmz_actors">актеры</a>
+                        <a class="nav__link t-white" href="#Dmz_repertoire">репертуар</a>
+                        <a class="nav__link t-white" href="#Dmz_contacts">контакты</a>
+                        <a class="nav__link t-white nav__link-mobile hidden" href="#mailing__form-name">подписаться на рассылку</a>
                     </nav>
-                    <a href="javascript:void(0)" class="nav__close-btn" id="nav__close-btn">
-                        <span class="material-icons nav__icons">close</span>
+                    <a href="javascript:void(0)" class="nav__close-btn t-white hidden" id="nav__close-btn">
+                        <i class="fas fa-times"></i>
                     </a>
-                    <a href="javascript:void(0);" class="icon">
-                        <span class="material-icons nav__icons">menu</span>
+                    <a href="javascript:void(0)" class="menu-icon t-white hidden">
+                        <i class="fas fa-bars"></i>
                     </a>
                     <div class="tickets">
-                        <a class="btn" href="#Dmz_repertoire">купить билеты</a>
+                        <a class="btn bg-red t-white" href="#Dmz_repertoire">купить билеты</a>
                     </div>
                 </div>
                 <div class="title">
                     <h1>театр dmt</h1>
-                    <img src="{% static 'images/Vector.png' %}" alt="логотип театра">
+                    <img src="{% static 'images/dmt-logo.png' %}" alt="логотип театра">
                 </div>
                 <div class="about">
                     <p>Театр DMT - это не совсем то, что происходит в реальной жизни. И не совсем то, что написал автор... Но это именно то, что творится у нас в голове. Это личное.</p>
                     <p>Добро пожаловать в театр личных сообщений!</p>    
                 </div>
+                <div class="tickets hidden" id="tickets-mobile">
+                    <a class="btn  bg-red t-white" href="#Dmz_repertoire">купить билеты</a>
+                </div>
             </div>
         </div>       
     </div>
     <div id="Dmz_actors" class="actors">
-        <div class="container">
-            <div class="actors__inner">
+        <div class="actors__inner f-c-sb t-red">
+            <div class="container">
                 <div class="section-title">
-                    <h2 class="t-dark">актеры</h2>
+                    <h2 class="">актеры</h2>
                 </div>
-                <div class="actors_slider-wrapper">
+            </div>
+            <div class="actors_slider-wrapper">
+                <div class="arrow actors-prev arrow-prev t-black">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slider-container">
                     <div class="actors_slider">
                         {% for actor in actors_2 %}
                         <div class="actors__item">
@@ -53,111 +62,118 @@
                         </div>
                         {% endfor %}
                     </div>
-                    <div class="arrow actors-prev arrow-prev">
-                        <span class="material-icons">
-                            
-                        </span>
-                    </div>
-                    <div class="arrow actors-next arrow-next">
-                        <span class="material-icons">
-                            
-                        </span>
-                    </div>
+                </div>
+                <div class="arrow actors-next arrow-next t-black">
+                    <i class="fas fa-chevron-right"></i>
                 </div>
             </div>
         </div>
+        
     </div>
     <div id="Dmz_repertoire" class="repertoire">
-        <div class="container">
-            <div class="repertoire__inner">
-                <div class="section-title t-white">
-                    <h2>репертуар</h2>
-                </div>
-                <div class="repertoire_slider">
-                    <div class="repertoire__cards">
-                        {% for composition in repertoire %}
-                        <div class="repertoire__item thumbnail">
-                            <div>
-                                <h5 class="repertoire__title">{{ composition.title }}</h5>
-                                <div class="repertoire__gallery" itemscope itemtype="http://schema.org/ImageGallery">
-                                    <figure class="gallery-thumbnail" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                        <a href="{{ composition.poster.url }}" itemprop="contentUrl" data-size="{{ composition.poster.width }}x{{ composition.poster.height }}">
-                                            <img src="{{ composition.poster_thumbnail.url }}" itemprop="thumbnail" alt="Image description" />
-                                        </a>
-                                        
-                                        <figcaption>{{ composition.description }}</figcaption>
-                                        <span>смотреть больше</span>
-                                    </figure>
-                                    {% for photo in composition.repertoirephoto_set.all %}
-                                    <figure class="gallery-thumbnail-hidden" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                        <a href="{{ photo.image.url }}" itemprop="contentUrl" data-size="{{ photo.image.width }}x{{ photo.image.height }}"></a>
-                                        <figcaption>{{ photo.description }}</figcaption>
-                                    </figure>
-                                    {% endfor %}
-                                </div>    
-                            </div>
-                            <div class="caption">
-                                <div class="flex-text repertoire__description">{{ composition.description|linebreaks }}</div>
-                                <a href="" class="btn test-btn" data-twf-target-state='{"event_id": "{{composition.tmp_id}}" }'>купить билет</a>    
-                            </div>
-                            
-                        </div>
-                        {% endfor %}
-                        
+            <div class="repertoire__inner f-c-sb t-white">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>репертуар</h2>
                     </div>
+                </div>
+                <div class="repertoire__slider-wrapper">
                     <div class="arrow repertoire-prev arrow-prev t-white">
-                        <span class="material-icons">
-                            
-                        </span>
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="slider-container">
+                        <div class="repertoire_slider">
+                            <div class="repertoire__cards">
+                                {% for composition in repertoire %}
+                                <div class="repertoire__item thumbnail">
+                                    <div class="f-c">
+                                        <h5 class="repertoire__title">{{ composition.title }}</h5>
+                                        <div class="repertoire__gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                                            <figure class="gallery-thumbnail" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                                <a href="{{ composition.poster.url }}" itemprop="contentUrl" data-size="{{ composition.poster.width }}x{{ composition.poster.height }}">
+                                                    <img src="{{ composition.poster_thumbnail.url }}" itemprop="thumbnail" alt="Image description" />
+                                                </a>
+                                                <figcaption></figcaption>
+                                                <span>смотреть больше</span>
+                                            </figure>
+                                            {% for photo in composition.repertoirephoto_set.all %}
+                                            <figure class="hidden" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                                <a href="{{ photo.image.url }}" itemprop="contentUrl" data-size="{{ photo.image.width }}x{{ photo.image.height }}"></a>
+                                                <figcaption></figcaption>
+                                            </figure>
+                                            {% endfor %}
+                                        </div>    
+                                    </div>
+                                    <div class="caption">
+                                        <div class="flex-text">
+                                            <p class="repertoire__description">
+                                                {{ composition.description }}
+                                            </p> 
+                                        </div>
+                                        <a href="" class="btn bg-red t-white test-btn" data-twf-target-state='{"event_id": "{{composition.tmp_id}}" }'>купить билет</a>    
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                     <div class="arrow repertoire-next arrow-next t-white">
-                        <span class="material-icons">
-                            
-                        </span>
+                        <i class="fas fa-chevron-right"></i>
                     </div>
                 </div>
+                
             </div>
-            
-        </div>
     </div>
     <div id="Dmz_contacts" class="footer">
         <div class="container">
-            <div class="footer__inner">
-                <div class="section-title">
+            <div class="footer__inner f-c-sb">
+                <div class="section-title t-red t-black">
                     <h6 class="t-dark">контакты</h6>
                 </div>
-                <div>
+                <div class="contact__form t-black">
                     <div class="contacts">
-                        <ul class="contacts__list">
+                        <ul class="fa-ul contacts__list">
                             <li>
-                                <a class="contacts__link phone t-dark" href="tel:+7 (953) 341 49 07">+7 (953) 341 49 07</a>
+                                <span class="fa-li t-red"><i class="fas fa-phone-alt"></i></span>
+                                <a class="contacts__link t-black social-phone" href="tel:+7 (953) 341 49 07">+7 (953) 341 49 07</a>
                             </li>
                             <li>
-                                <a class="contacts__link social-vk t-dark" href="https://vk.com/teatr_dmt">@teatr_dmt</a>
+                                <span class="fa-li t-red"><i class="fab fa-vk"></i></span>
+                                <a class="contacts__link t-black social-vk" href="https://vk.com/teatr_dmt">@teatr_dmt</a>
+                            </li>
+                            <li>
+                                <span class="fa-li t-red"><i class="fas fa-map-marker-alt"></i></span>
+                                <a class="contacts__link t-black social-map" href="https://yandex.ru/maps/-/CCUEBRVE1B">cпб, 13 линия во, 70, 2 этаж галерея артмуза</a>
                             </li>
                         </ul>
                     </div>
                     <div class="mailing">
-                        <h6 class="mailing__title t-black">будьте в курсе событий нашего театра, подписывайтесь на рассылку</h6>
-                        <form class="mailing__form" action="">
-                            <input class="input" type="text" placeholder="Имя">
-                            <input class="input" type="text" placeholder="Телефон">
-                            <input class="input" type="text" placeholder="E-mail">
-                            <input class="btn" type="submit" value="Подписаться">
+                        <h6 class="mailing__title t-black">будьте в курсе событий нашего театра</h6>
+                        <form class="mailing__form f-c-sb" id="mailing__form" method="POST" data-url="{% url "add_subscriber" %}" action="{% url 'home' %}">
+                            {% csrf_token %}
+                            {% for input in mailing_form %}
+                                {{ input }}
+                                <ul id="{{ input.id_for_label }}__errors" class="mailing__form-errors">
+                                    {{ input.errors }}
+                                </ul>
+                            {% endfor %}
+                            <!-- <input id="subscribe" class="btn bg-red t-white" type="submit" value="Подписаться"> -->
+                            <button id="subscribe" class="btn-subscribe btn bg-red t-white" type="submit">Подписаться</button>
                         </form>
                     </div>
-                    <section class="site-info">
-                        <div class="site-info__about">
-                            <span>(с) Все права защищены.</span>
-                            <a class="" href="">Театр ДМТ</a>
-                            <span>2020</span>
-                        </div>
-                        <div class="site-info__developed">
-                            <span>Разработано:</span>
-                            <a href="">kosskokos.design</a>
-                        </div>
-                    </section> 
                 </div>
+                <hr>
+                <section class="site-info f-sb t-grey">
+                    <div class="site-info__about">
+                        <span>(с) Все права защищены.</span>
+                        <a class="t-grey" href="">Театр ДМТ</a>
+                        <span>{% now "Y" %}</span>
+                    </div>
+                    <div class="site-info__developed">
+                        <span>Разработано:</span>
+                        <a class="t-grey" href="">kosskokos.design</a>
+                    </div>
+                </section> 
                    
             </div>
         </div>

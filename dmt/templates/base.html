@@ -42,26 +42,22 @@
                 url('{% static "fonts/open-sans-condensed-v15-latin_cyrillic-700.woff" %}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
         }
     </style>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
+    <!-- fontawesome -->
+    <link rel="stylesheet" type="text/css" href="{% static 'libs/fontawesome/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libs/fontawesome/css/solid.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libs/fontawesome/css/brands.min.css' %}">
     <!-- Photoswipe core CSS file -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/photoswipe.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libs/photoswipe/css/photoswipe.css' %}">
 
-    <!-- Photoswipe skin CSS file (styling of UI - buttons, caption, etc.)
-     In the folder of skin CSS file there are also:
-     - .png and .svg icons sprite,
-     - preloader.gif (for browsers that do not support CSS animations) -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/default-skin/default-skin.css' %}"> 
+    <!-- Photoswipe skin CSS file -->
+    <link rel="stylesheet" type="text/css" href="{% static 'libs/photoswipe/css/default-skin/default-skin.css' %}"> 
     
-    <!-- owl -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.default.min.css' %}">
     <!-- slick -->
-    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'libs/slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'libs/slick/slick-theme.css' %}"/>
 
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    
 
     <title>{% block title %}ТЕАТР ДМТ{% endblock %}</title>
 </head>
@@ -72,211 +68,33 @@
     {% endblock %}
 
     <!-- photoswipe -->
-    <!-- Core JS file -->
-    <script src="{% static 'js/photoswipe.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-    <!-- UI JS file -->
-    <script src="{% static 'js/photoswipe-ui-default.min.js' %}"></script>
-    <!-- owl -->
-    <!-- jqury min -->
-    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script>
-        $(document).ready(function(){
-            $('.asdasd').owlCarousel({
-                loop: true,
-                mouseDrag: false,
-                nav: false,
-                dots: true,
-                responsive: {
-                    0:{
-                        items: 1,
-                    },
-                    768: {
-                        items: 2,
-                        margin: 30,
-                    },
-                    992: {
-                        items: 2,
-                        margin: 160,
-                    }
-                }
-            });
-        });
-        
-    </script>
-    <script type="text/javascript" 
-            defer="defet" 
-            charset="UTF-8" 
-            src="https://timepad.ru/js/tpwf/loader/min/loader.js" 
-            data-timepad-widget-v2="event_register">
-        (function() {
-            return {
-                "locale": "ru",
-                "display": "popup",
-                "hidePreloading": true,
-                "popup": {
-                    "triggerSelector": ".test-btn",
-                    "width": "1000"
-                },
-                "event": {
-                    "id": "1275720"
-                },
-
-            }
-        })();
-    </script>
-    <script type="text/javascript" src="{% static 'slick/slick.min.js'%}"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.actors_slider').slick({
-                focusOnSelect: false,
-                slidesToShow: 4,
-                rows: 2,
-                infinite: false,
-                arrows: true,
-                prevArrow: '.actors-prev',
-                nextArrow: '.actors-next',
-                dots: true,
-                responsive: [{
-
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 4,
-                    }
-
-                    }, {
-
-                    breakpoint: 993,
-                    settings: {
-                        slidesToShow: 2,
-                        
-                    }
-
-                    }, {
-
-                    breakpoint: 300,
-                    settings: {
-                        slidesToShow: 2,
-                    }
-
-                }]
-            });
-            $('.repertoire__cards').slick({
-                focusOnSelect: false,
-                slidesToShow: 2,
-                infinite: false,
-                arrows: true,
-                prevArrow: '.repertoire-prev',
-                nextArrow: '.repertoire-next',
-                dots: true,
-                responsive: [{
-                    breakpoint: 769,
-                        settings: {
-                            slidesToShow: 1,
-                        }
-
-                    }]
-            });
-        });
-      </script>
-      <script>
-        function myFunction() {
-          var x = document.getElementById("myTopnav");
-          if (x.className === "nav") {
-            x.className += " responsive";
-          } else {
-            x.className = "nav";
-          }
-        }
-        </script>
-        <script>
-            $(".icon").click(function(e){
-                e.preventDefault();
-                $(".nav").css("display", "flex").hide().fadeIn();
-                $(".nav__close-btn").fadeIn();
-                $(document.body).css({"overflow": "hidden", "height": "100%"});
-            });
-            $(".nav__close-btn, .nav").click(function(e){
-                e.preventDefault();
-                $(".nav").fadeOut();
-                $(".nav__close-btn").fadeOut();
-                $(document.body).css({"overflow": "auto", "height": "auto"});
-            });
-            </script>
-        <script>
-            // Select all links with hashes
-            $('a[href*="#"]')
-            // Remove links that don't actually link to anything
-            .not('[href="#"]')
-            .not('[href="#0"]')
-            .click(function(event) {
-                // On-page links
-                if (
-                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-                && 
-                location.hostname == this.hostname
-                ) {
-                // Figure out element to scroll to
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                // Does a scroll target exist?
-                if (target.length) {
-                    // Only prevent default if animation is actually gonna happen
-                    event.preventDefault();
-                    $('html, body').animate({
-                    scrollTop: target.offset().top
-                    }, 500, function() {
-                    // Callback after animation
-                    // Must change focus!
-                    var $target = $(target);
-                    $target.focus();
-                    if ($target.is(":focus")) { // Checking if the target was focused
-                        return false;
-                    } else {
-                        $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-                        $target.focus(); // Set focus again
-                    };
-                    });
-                }
-                }
-            });
-        </script>
+    <script src="{% static 'libs/photoswipe/js/photoswipe.min.js' %}"></script>
+    <!-- Photoswipe UI JS file -->
+    <script src="{% static 'libs/photoswipe/js/photoswipe-ui-default.min.js' %}"></script>
+    <!-- Initial photoswipe js file -->
+    <script src="{% static 'libs/photoswipe/js/pwotoswipe.main.min.js' %}"></script>
+    <!-- jquery min -->
+    <script src="{% static 'libs/jquery/js/jquery-3.5.1.min.js' %}"></script>
+    <!-- виджет timepad -->
+    <script type="text/javascript" defer="defet" charset="UTF-8" src="https://timepad.ru/js/tpwf/loader/min/loader.js" data-timepad-widget-v2="event_register">(function(){return {"locale": "ru","display": "popup","hidePreloading": true,"popup": {"triggerSelector": ".test-btn","width": "1000"},"event": {"id": "1275720"},}})();</script>
+    <!-- Slick -->
+    <script type="text/javascript" src="{% static 'libs/slick/slick.min.js'%}"></script>
+    <!-- main js -->
+    <script type="text/javascript" src="{% static 'js/main.js'%}"></script>
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-        <!-- Background of PhotoSwipe.
-            It's a separate element, as animating opacity is faster than rgba(). -->
         <div class="pswp__bg"></div>
-
-        <!-- Slides wrapper with overflow:hidden. -->
         <div class="pswp__scroll-wrap">
-
-            <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
-            <!-- don't modify these 3 pswp__item elements, data is added later on. -->
             <div class="pswp__container">
                 <div class="pswp__item"></div>
                 <div class="pswp__item"></div>
                 <div class="pswp__item"></div>
             </div>
-
-            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
             <div class="pswp__ui pswp__ui--hidden">
-
                 <div class="pswp__top-bar">
-
-                    <!--  Controls are self-explanatory. Order can be changed. -->
-
                     <div class="pswp__counter"></div>
-
                     <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-
                     <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-
-                    <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-                    <!-- element will get class pswp__preloader--active when preloader is running -->
                     <div class="pswp__preloader">
                         <div class="pswp__preloader__icn">
                         <div class="pswp__preloader__cut">
@@ -285,25 +103,18 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
                     <div class="pswp__share-tooltip"></div>
                 </div>
-
                 <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
                 </button>
-
                 <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
                 </button>
-
                 <div class="pswp__caption">
                     <div class="pswp__caption__center"></div>
                 </div>
-
             </div>
-
             </div>
-
     </div>
 </body>
 </html>

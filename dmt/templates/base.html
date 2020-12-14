@@ -43,21 +43,25 @@
         }
     </style>
     <!-- fontawesome -->
-    <link rel="stylesheet" type="text/css" href="{% static 'libs/fontawesome/css/fontawesome.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'libs/fontawesome/css/solid.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'libs/fontawesome/css/brands.min.css' %}">
+    <link rel="preload" href="{% static 'libs/fontawesome/css/fontawesome.min.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'libs/fontawesome/css/fontawesome.min.css' %}"></noscript>
+    <link rel="preload" href="{% static 'libs/fontawesome/css/solid.min.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'libs/fontawesome/css/solid.min.css' %}"></noscript>
+    <link rel="preload" href="{% static 'libs/fontawesome/css/brands.min.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'libs/fontawesome/css/brands.min.css' %}"></noscript>
     <!-- Photoswipe core CSS file -->
-    <link rel="stylesheet" type="text/css" href="{% static 'libs/photoswipe/css/photoswipe.css' %}">
-
+    <link rel="preload" href="{% static 'libs/photoswipe/css/photoswipe.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'libs/photoswipe/css/photoswipe.css' %}"></noscript>
     <!-- Photoswipe skin CSS file -->
-    <link rel="stylesheet" type="text/css" href="{% static 'libs/photoswipe/css/default-skin/default-skin.css' %}"> 
-    
+    <link rel="preload" href="{% static 'libs/photoswipe/css/default-skin/default-skin.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'libs/photoswipe/css/default-skin/default-skin.css' %}"></noscript>
     <!-- slick -->
-    <link rel="stylesheet" type="text/css" href="{% static 'libs/slick/slick.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'libs/slick/slick-theme.css' %}"/>
-
+    <link rel="preload" href="{% static 'libs/slick/slick.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'libs/slick/slick.css' %}"></noscript>
+    <link rel="preload" href="{% static 'libs/slick/slick-theme.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'libs/slick/slick-theme.css' %}"></noscript>
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.min.css' %}">
 
     <title>{% block title %}ТЕАТР ДМТ{% endblock %}</title>
 </head>

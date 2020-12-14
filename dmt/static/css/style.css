@@ -153,7 +153,7 @@ input::placeholder {
 .intro {
     background: linear-gradient(to top,#000, #000 calc(50% - 600px), transparent calc(50% - 550px), transparent calc(50% + 550px), #000 calc(50% + 600px), #000),
                 linear-gradient(to right,#000, #000 calc(50% - 960px) ,rgba(0,0,0,0.7) calc(50% - 800px) , rgba(0,0,0,0.7) calc(50% + 800px), #000 calc(50% + 960px), #000), 
-                url(../images/intro.jpg) no-repeat center fixed;
+                url('../images/intro.jpg') no-repeat center fixed;
 }
 .intro__inner {
     position: relative;
@@ -230,7 +230,7 @@ input::placeholder {
 .repertoire {
     background: linear-gradient(to top,#000, #000 calc(50% - 600px), transparent calc(50% - 550px), transparent calc(50% + 550px), #000 calc(50% + 600px), #000),
                 linear-gradient(to right,#000, #000 calc(50% - 960px) ,rgba(0,0,0,0.7) calc(50% - 800px) , rgba(0,0,0,0.7) calc(50% + 800px), #000 calc(50% + 960px), #000), 
-                url(../images/repertoire.jpg) no-repeat center fixed;
+                url('../images/repertoire.jpg') no-repeat center fixed;
 
 }
 .repertoire__inner {
